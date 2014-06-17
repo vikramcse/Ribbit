@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,23 +21,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.parse.ParseAnalytics;
+import com.parse.ParseUser;
 
 
 public class MainActivity extends Activity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v13.app.FragmentStatePagerAdapter}.
-     */
+    public static final String TAG = "RIBBIT";
     SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
+
     ViewPager mViewPager;
 
     @Override
@@ -46,11 +39,14 @@ public class MainActivity extends Activity {
 
         ParseAnalytics.trackAppOpened(getIntent());
 
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+        ParseUser currentUser = ParseUser.getCurrentUser();
 
+        if (currentUser == null) {
+            navigateToLogin();
+        }
+        else {
+            Log.i(TAG, currentUser.getUsername());
+        }
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -60,6 +56,13 @@ public class MainActivity extends Activity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
+    }
+
+    private void navigateToLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 
@@ -77,8 +80,9 @@ public class MainActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            ParseUser.logOut();
+            navigateToLogin();
         }
         return super.onOptionsItemSelected(item);
     }
