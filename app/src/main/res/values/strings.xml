@@ -19,7 +19,11 @@
     <string name="signup_error_title">Oops!</string>
     <string name="login_error_title">Oops!</string>
     <string name="Logout_menu_title">Logout</string>
+    <string name="edit_friends_menu_title">Edit Friends</string>
     <string name="empty_inbox_label">No New Messages</string>
     <string name="empty_friends_label">Add Friends To Begin</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="title_activity_main_activity2">MainActivity2</string>
+    <string name="error_title">We are Sorry!</string>
 
 </resources>

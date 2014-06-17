@@ -53,6 +53,7 @@ public class SignUpActivity extends Activity {
                 else {
 
                     setProgressBarIndeterminateVisibility(true);
+
                     ParseUser newUser = new ParseUser();
                     newUser.setUsername(username);
                     newUser.setPassword(password);
@@ -61,6 +62,7 @@ public class SignUpActivity extends Activity {
                         @Override
                         public void done(ParseException e) {
                             setProgressBarIndeterminateVisibility(false);
+
                             if (e == null) {
                                 Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
