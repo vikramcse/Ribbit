@@ -25,5 +25,17 @@
     <string name="title_activity_edit_friends">Edit Friends</string>
     <string name="title_activity_main_activity2">MainActivity2</string>
     <string name="error_title">We are Sorry!</string>
+    <string name="menu_camera_lable">Camera</string>
+    <string name="error_external_storage">There was a problem in accessing your device\'s storage</string>
+    <string name="general_error">Sorry, There was an error</string>
+    <string name="on_file_resizing_message">The selected video must be less than 10 MB</string>
+    <string name="error_opening_file">There was a problem with a selected file</string>
+    <string name="file_size_error">The selected file is too large \!. Select a new file.</string>
+    <string-array name="camera_choices">
+        <item>Take Picture</item>
+        <item>Take Video</item>
+        <item>Choose Picture</item>
+        <item>Choose Video</item>
+    </string-array>
 
 </resources>
