@@ -49,6 +49,12 @@
             android:parentActivityName="com.vikram.ribbit.app.MainActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name="com.vikram.ribbit.app.ViewImageActivity"
+            android:label="@string/title_activity_view_image"
+            android:parentActivityName="com.vikram.ribbit.app.MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

@@ -19,6 +19,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.parse.ParseAnalytics;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.io.File;
@@ -27,12 +28,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
 
     public static final String TAG = "MainActivity";
+
     public static final int TAKE_PHOTO_REQUEST = 0;
     public static final int TAKE_VIDEO_REQUEST = 1;
     public static final int PICK_PHOTO_REQUEST = 2;
@@ -211,6 +214,8 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
 
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
