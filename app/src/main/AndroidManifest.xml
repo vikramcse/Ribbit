@@ -40,8 +40,14 @@
         <activity
             android:name="com.vikram.ribbit.app.EditFriendsActivity"
             android:label="@string/title_activity_edit_friends"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
+            android:parentActivityName="com.vikram.ribbit.app.MainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.vikram.ribbit.app.RecipientsActivity"
+            android:label="@string/title_activity_recipients"
+            android:parentActivityName="com.vikram.ribbit.app.MainActivity"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 
