@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.parse.Parse;
 import com.parse.ParseObject;
 
 import java.util.List;
@@ -55,5 +56,11 @@ public class MessageAdapter extends ArrayAdapter<ParseObject> {
     private static class ViewHolder {
         ImageView iconImageView;
         TextView nameLabel;
+    }
+
+    public void refill(List<ParseObject> message) {
+        mMassages.clear();
+        mMassages.addAll(message);
+        notifyDataSetChanged();
     }
 }
